@@ -15,7 +15,7 @@ user = User.new(email: "haha@gmail.com", password: "haha")
   Car.create(
     car_model: Faker::Vehicle.make_and_model,
     capacity: rand(4..8),
-    description: Faker::Vehicle.car_options,
+    description: Faker::Vehicle.car_options.join(", "),
     price_per_day: rand(1111..9999),
     user: user
   )
