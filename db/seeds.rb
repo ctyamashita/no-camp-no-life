@@ -10,9 +10,9 @@
 require "faker"
 # TODO: Write a seed to insert 100 posts in the database
 puts "creating cars"
-user = User.create(email: "haha@gmail.com", password: "haha")
+user = User.create!(email: "haha@gmail.com", password: "hahaha")
 20.times do
-  Car.create(
+  Car.create!(
     car_model: Faker::Vehicle.make_and_model,
     capacity: rand(4..8),
     description: Faker::Vehicle.car_options.join(", "),
