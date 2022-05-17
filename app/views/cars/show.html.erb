@@ -1,3 +1,4 @@
+
 <div class="container">
   <h1>Car show page</h1>
 </div>
@@ -5,12 +6,11 @@
   <div class="container">
     <h1><%= @car.car_model %></h1>
     <div class="row">
-      <div class="col-md-6">
+      <div >
         <div class="card">
-          <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" />
-        </div>
-      </div>
-      <div class="col mx-2">
+          <%# <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" /> %>
+          <img src=<%= @car.photo.attached? ? cl_image_path(@car.photo.key) : 'https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg' %> />
+        <div class="col mx-2">
         <%= render 'bookings/form' %>
       </div>
     </div>
