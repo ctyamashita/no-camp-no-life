@@ -1,0 +1,8 @@
+<div class="form-box">
+  <h2>Reserve <%= @car.car_model %></h2>
+  <%= simple_form_for [@car, @booking] do |f| %>
+    <%= f.input :start_date, as: :date, html5: true %>
+    <%= f.input :end_date, as: :date, html5: true %>
+    <%= f.submit %>
+  <% end %>
+</div>

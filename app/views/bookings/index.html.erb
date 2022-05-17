@@ -1,0 +1,22 @@
+<h1>Your bookings</h1>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Car</th>
+      <th>From</th>
+      <th>To</th>
+      <th>Status</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @bookings.each do |booking| %>
+      <tr>
+        <td><%= booking.car.car_model %></td>
+        <td><%= booking.start_date %></td>
+        <td><%= booking.end_date %></td>
+        <td><%= booking.status %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
