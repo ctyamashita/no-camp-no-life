@@ -1,6 +1,6 @@
 class BookingsController < ApplicationController
   def index
-    @bookings = policy_scope(Booking).order(created_at: :asc)
+    @bookings = policy_scope(Booking.where(user: current_user)).order(created_at: :asc)
   end
 
   def create
@@ -17,6 +17,11 @@ class BookingsController < ApplicationController
   end
 
   def update
+    if @booking.update(booking_params)
+      redirect_to @booking, notice: 'Booking was successfully updated.'
+    else
+      render :edit
+    end
   end
 
   private
