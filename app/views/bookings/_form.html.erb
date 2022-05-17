@@ -3,6 +3,7 @@
   <%= simple_form_for [@car, @booking] do |f| %>
     <%= f.input :start_date, as: :date, html5: true %>
     <%= f.input :end_date, as: :date, html5: true %>
-    <%= f.submit %>
+    <%= f.submit class: 'btn btn-primary'%>
   <% end %>
+  <%= link_to 'Back', car_path(@car), class: 'btn btn-dark mt-3' %>
 </div>
