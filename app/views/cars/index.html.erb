@@ -1,4 +1,4 @@
-<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/background.png);">
+<div class="banner">
   <div class="container">
     <h1>No Camp No Life</h1>
     <p>Get the wheels for the adventure of your life!</p>
@@ -7,15 +7,15 @@
 </div>
 <div class="container">
   <div class="row">
-      <%= @cars.each do |car| %>
+      <% @cars.each do |car| %>
         <div class="col-12 col-md-4 col-lg-3">
           <div class="card-trip mt-5">
             <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" />
+            <%= link_to '', car_path(car), class: 'card-trip-link' %>
             <div class="card-trip-infos">
               <div>
                 <h2><%= car.car_model %> </h2>
-                <p><%= car.capacity %></p>
-                <p><%= car.description %></p>
+                <p>Capacity: <%= car.capacity %></p>
               </div>
               <h2 class="card-trip-pricing"><%= car.price_per_day %></h2>
             </div>
