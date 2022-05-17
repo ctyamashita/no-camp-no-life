@@ -3,7 +3,9 @@
 <table class="table">
   <thead>
     <tr>
+      <th>Image</th>
       <th>Car</th>
+      <th>Owner's Contact</th>
       <th>From</th>
       <th>To</th>
       <th>Status</th>
@@ -12,7 +14,9 @@
   <tbody>
     <% @bookings.each do |booking| %>
       <tr>
+        <td style="background-image: url(https://source.unsplash.com/random/?car)"></td>
         <td><%= booking.car.car_model %></td>
+        <td><%= booking.car.user.email %></td>
         <td><%= booking.start_date %></td>
         <td><%= booking.end_date %></td>
         <td><%= booking.status %></td>
