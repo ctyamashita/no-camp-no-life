@@ -4,11 +4,14 @@
   box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
   border-radius: 10px;
   position: relative;
-  transition: 0.4s;
+  transition: all 0.5s;
+  h1, h2, h3, h4, h5, h6, p {
+    color: $blue;
+  }
 }
 
-.card-trip:hover img{
-  filter: brightness(90%);
+.card-trip:hover {
+  filter: brightness(92%);
 }
 
 .card-trip>img {
@@ -25,7 +28,6 @@
 
 .card-trip p {
   font-size: 12px;
-  opacity: .7;
   margin: 0;
 }
 
@@ -56,15 +58,18 @@
   display: grid;
   background-color: rgba(255, 255, 255, 0);
   border: none;
-  height: 400px;
-  grid-template-columns: 1fr 1fr ;
+  grid-template-columns: 4fr 3fr;
   width:100%;
   img {
-    height: 90%;
+    height: 100%;
     width:100%;
-    margin-right: 10px;
     object-fit: cover;
+    margin-right: 8px;
   }
+}
+
+.row {
+  padding-left: 0 !important;
 }
 // .card-trip-pricing {
 //   color: gold;
