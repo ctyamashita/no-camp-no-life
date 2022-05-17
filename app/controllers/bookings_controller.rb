@@ -8,11 +8,15 @@ class BookingsController < ApplicationController
     @booking.car = Car.find(params[:car_id])
     @booking.user = current_user
     authorize @booking
+
     if @booking.save
       redirect_to bookings_path
     else
       render car_path(@booking.car)
     end
+  end
+
+  def update
   end
 
   private

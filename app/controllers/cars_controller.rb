@@ -5,6 +5,7 @@ class CarsController < ApplicationController
 
   def show
     @car = Car.find(params[:id])
+    authorize @car
   end
 
   def new
@@ -14,7 +15,7 @@ class CarsController < ApplicationController
 
   def create
     @car = Car.new(car_params)
-    @car.user = User.find(params[:car_id])
+    @car.user = current_user
     authorize @car
 
     if @car.save
