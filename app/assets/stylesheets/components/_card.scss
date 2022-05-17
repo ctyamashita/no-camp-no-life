@@ -1,8 +1,14 @@
 .card-trip {
   overflow: hidden;
   background: white;
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
   border-radius: 10px;
+  position: relative;
+  transition: 0.4s;
+}
+
+.card-trip:hover img{
+  filter: brightness(90%);
 }
 
 .card-trip>img {
@@ -23,6 +29,13 @@
   margin: 0;
 }
 
+.card-trip-link {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+}
 
 .card-trip .card-trip-infos {
   padding: 16px;
@@ -38,3 +51,7 @@
   top: -20px;
   width: 40px;
 }
+
+// .card-trip-pricing {
+//   color: gold;
+// }
