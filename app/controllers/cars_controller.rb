@@ -1,20 +1,24 @@
 class CarsController < ApplicationController
   def index
-    @cars = Car.all
+    @cars = policy_scope(Car).order(created_at: :asc)
   end
 
   def show
     @car = Car.find(params[:id])
+    authorize @car
     @booking = Booking.new
   end
 
   def new
     @car = Car.new
+    authorize @car
   end
 
   def create
     @car = Car.new(car_params)
-    @car.user = User.find(params[:car_id])
+    @car.user = current_user
+    authorize @car
+
     if @car.save
       redirect_to cars_path(@car)
     else
