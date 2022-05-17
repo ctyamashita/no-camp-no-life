@@ -6,11 +6,16 @@
   </div>
 </div>
 <div class="container">
+<<<<<<< HEAD
+=======
+  <%= link_to 'Add car', new_car_path, class: 'btn btn-primary' %>
+>>>>>>> 0618491e5519f5f1857fe3be3f47aefce05ff818
   <div class="row">
       <% @cars.each do |car| %>
         <div class="col-12 col-md-4 col-lg-3">
           <div class="card-trip mt-5">
-            <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" />
+          <%= cl_image_tag car.photo.attached? ? car.photo.key : "https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" %>
+
             <%= link_to '', car_path(car), class: 'card-trip-link' %>
             <div class="card-trip-infos">
               <div>
