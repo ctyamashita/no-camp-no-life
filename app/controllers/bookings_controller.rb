@@ -1,13 +1,13 @@
 class BookingsController < ApplicationController
   def index
-    @bookings = Booking.all
+    @bookings = policy_scope(Booking).order(created_at: :asc)
   end
 
   def create
     @booking = Booking.new(booking_params)
     @booking.car = Car.find(params[:car_id])
     @booking.user = current_user
-
+    authorize @booking
     if @booking.save
       redirect_to bookings_path
     else
