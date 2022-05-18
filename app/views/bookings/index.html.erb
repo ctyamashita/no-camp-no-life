@@ -1,35 +1,51 @@
-<div class="container mt-5 col-12">
+<div class="container mt-5 col-12" data-controller="bookings">
   <h1>Your bookings</h1>
- <% @bookings.each do |booking| %>
-<div class="card-product mb-3 mt-3">
 
-  <% if booking.car.photo.attached? %>
-    <div style="background-image: url(<%= cl_image_path(booking.car.photo.key)%>); background-position: center; height: 120px; background-size: cover; width: 200px; padding: 0px;">
-    </div>
-  <% else %>
-    <div style="background-image: url(/assets/not-available.jpg); filter: grayscale(100%); background-position: center; height: 120px; background-size: cover; width: 200px; padding: 0px;"></div>
-  <% end %>
+  <button class="btn btn-primario"
+          data-action="click->bookings#display"
+          data-disable-button-target="button">
+    Garage
+  </button>
+
+  <button class="btn btn-primario"
+          data-action="click->bookings#displayBookings"
+          data-disable-button-target="button">
+    My Bookings
+  </button>
+
+<%= render 'garage' if @cars.any? %>
+<div data-bookings-target="myBookings">
+  <% @bookings.each do |booking| %>
+  <div class="card-product mb-3 mt-3">
+
+    <% if booking.car.photo.attached? %>
+      <div style="background-image: url(<%= cl_image_path(booking.car.photo.key)%>); background-position: center; height: 120px; background-size: cover; width: 200px; padding: 0px;">
+      </div>
+    <% else %>
+      <div style="background-image: url(/assets/not-available.jpg); filter: grayscale(100%); background-position: center; height: 120px; background-size: cover; width: 200px; padding: 0px;"></div>
+    <% end %>
 
 
-  <div class="d-flex w-100 card-product-infos justify-content-evenly align-items-center">
-    <div class="max-width">
-      <h2><%= booking.car.car_model %></h2>
+    <div class="d-flex w-100 card-product-infos justify-content-evenly align-items-center">
+      <div class="max-width">
+        <h2><%= booking.car.car_model %></h2>
+      </div>
+      <div>
+        <p>Owner contact: <strong><%= booking.car.user.email %></strong></p>
+      </div>
+        <div>
+          <p>From: <br> <strong><%= booking.start_date %></strong></p>
+        </div>
+        <div>
+          <p>To: <br> <strong><%= booking.end_date %></strong></p>
+        </div>
+        <div>
+          <p>Status: <br> <strong><%= booking.status %></strong></p>
+        </div>
+        <div>
+          <p><strong>Total: ¥<%= (booking.car.price_per_day * (booking.end_date - booking.start_date)).to_i %></strong></p>
+        </div>
     </div>
-    <div>
-      <p>Owner contact: <strong><%= booking.car.user.email %></strong></p>
-    </div>
-      <div>
-        <p>From: <br> <strong><%= booking.start_date %></strong></p>
-      </div>
-      <div>
-        <p>To: <br> <strong><%= booking.end_date %></strong></p>
-      </div>
-      <div>
-        <p>Status: <br> <strong><%= booking.status %></strong></p>
-      </div>
-      <div>
-        <p><strong>Total: ¥<%= (booking.car.price_per_day * (booking.end_date - booking.start_date)).to_i %></strong></p>
-      </div>
   </div>
+  <% end %>
 </div>
-<% end %>
