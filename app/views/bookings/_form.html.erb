@@ -1,9 +1,8 @@
-<div class="form-box">
-  <h2>Reserve <%= @car.car_model %></h2>
+<div class="form-box pe-4">
   <%= simple_form_for [@car, @booking] do |f| %>
-    <%= f.date_field :start_date, min: Date.today %>
-    <%= f.date_field :end_date, min: Date.today %>
-    <%= f.submit class: 'btn btn-primary'%>
+    <%= f.input :start_date, as: :date, html5: true %>
+    <%= f.input :end_date, as: :date, html5: true %>
+    <%= f.submit class: 'btn btn-primario me-3 mt-3'%>
+    <%= link_to 'Back', cars_path, class: 'btn btn-primario mt-3' %>
   <% end %>
-  <%= link_to 'Back', car_path(@car), class: 'btn btn-dark mt-3' %>
 </div>

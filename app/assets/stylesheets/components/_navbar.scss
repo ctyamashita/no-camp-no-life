@@ -1,12 +1,34 @@
 .navbar-lewagon {
   justify-content: space-between;
-  background: white;
+  background: $gray;
+  box-shadow: 0 0 8px rgba($color: #000000, $alpha: 0.5);
+  a {
+    color: $light-gray !important;
+  }
 }
 
 .navbar-lewagon .navbar-collapse {
   flex-grow: 0;
 }
 
-.navbar-lewagon .navbar-brand img {
-  width: 40px;
+.navbar-brand a {
+  text-decoration: none;
+  color: white;
+  font-weight: 900;
+}
+
+.dropdown-menu {
+  background-color: $gray !important;
+  transition: all 0.3s;
+  border: none;
+  padding: 4px;
+}
+
+.dropdown-item {
+  padding: 4px;
+}
+
+.dropdown-item:hover {
+  background-color: #222234 !important;
+
 }

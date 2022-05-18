@@ -1,21 +1,21 @@
 .banner {
   background-size: cover;
   background-position: center;
-  padding: 150px 0;
-  background-image: linear-gradient(rgba(0, 0, 0, 0.12), rgba(0, 0, 0, 0.498)), asset-url(camper1);
+  padding: 38vh 0;
+  height: 100vh;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.7)), asset-url(camper2);
 }
 
 .banner h1 {
   margin: 0;
   color: white;
-  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
-  font-size: 32px;
+  text-shadow: 1px 1px 3px rgba(0, 0, 4px, 0.6);
+  font-size: 80px;
   font-weight: bold;
 }
 
 .banner p {
   font-size: 20px;
   color: white;
-  opacity: .7;
-  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+  text-shadow: 1px 1px 3px rgba(0, 0, 4px, 0.8);
 }
