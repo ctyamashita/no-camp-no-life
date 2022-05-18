@@ -13,7 +13,7 @@
     My Bookings
   </button>
 
-<%= render 'garage' if @cars.any? %>
+<%= render 'garage' %>
 <div data-bookings-target="myBookings">
   <% @bookings.each do |booking| %>
   <div class="card-product mb-3 mt-3">

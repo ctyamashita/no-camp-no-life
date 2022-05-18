@@ -1,35 +1,44 @@
 <div class="container mt-5" data-bookings-target="garage">
-  <table class="table mt-5">
-    <thead>
-      <tr>
-        <th>Image</th>
-        <th>Car</th>
-        <th>Renter's Contact</th>
-        <th>From</th>
-        <th>To</th>
-        <th>Status</th>
-      </tr>
-    </thead>
-    <tbody>
-      <% @cars.each do |booking| %>
+   <h3>My cars</h3>
+    <% Car.where(user: current_user).each do |car| %>
+      <%= link_to car.car_model, car_path(car), class: 'btn btn-outline' %>
+    <% end %>
+<hr>
+  <% if @cars.any? %>
+    <table class="table mt-5">
+      <thead>
         <tr>
-          <% if booking.car.photo.attached? %>
-            <td class="font-white" style="padding: 0px;"><%= cl_image_tag booking.car.photo.key, height: 100, width: 150, crop: :fill, class: "padding: 0px"%></td>
-          <% else %>
-            <td style="background-image: url(https://source.unsplash.com/random/cars); height: 100px; width: 150px; padding: 0px;"></td>
-          <% end %>
-          <td><%= booking.car.car_model %></td>
-          <td><%= booking.user.email %></td>
-          <td><%= booking.start_date %></td>
-          <td><%= booking.end_date %></td>
-          <td>
-            <%= simple_form_for booking do |f| %>
-                <%= f.input :status, collection: Booking.statuses.keys, include_blank: false, label: false %>
-                <%= f.submit class: 'btn btn-outline-dark w-100' %>
-            <% end %>
-          </td>
+          <th>Image</th>
+          <th>Car</th>
+          <th>Renter's Contact</th>
+          <th>From</th>
+          <th>To</th>
+          <th>Status</th>
         </tr>
-      <% end %>
-    </tbody>
-  </table>
+      </thead>
+      <tbody>
+        <% @cars.each do |booking| %>
+          <tr>
+            <% if booking.car.photo.attached? %>
+              <td class="font-white" style="padding: 0px;"><%= cl_image_tag booking.car.photo.key, height: 100, width: 150, crop: :fill, class: "padding: 0px"%></td>
+            <% else %>
+              <td style="background-image: url(https://source.unsplash.com/random/cars); height: 100px; width: 150px; padding: 0px;"></td>
+            <% end %>
+            <td><%= booking.car.car_model %></td>
+            <td><%= booking.user.email %></td>
+            <td><%= booking.start_date %></td>
+            <td><%= booking.end_date %></td>
+            <td>
+              <%= simple_form_for booking do |f| %>
+                  <%= f.input :status, collection: Booking.statuses.keys, include_blank: false, label: false %>
+                  <%= f.submit class: 'btn btn-outline-dark w-100' %>
+              <% end %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  <% else %>
+    <p>No reservations made.</p>
+  <% end %>
 </div>
