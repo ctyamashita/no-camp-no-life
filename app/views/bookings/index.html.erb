@@ -1,7 +1,20 @@
 <div class="container mt-5 col-12">
   <h1>Your bookings</h1>
+
+  <button class="btn btn-primario"
+          data-action="click->bookings#display"
+          data-disable-button-target="button">
+    Garage
+  </button>
+
+  <button class="btn btn-primario"
+          data-action="click->bookings#displayBookings"
+          data-disable-button-target="button">
+    My Bookings
+  </button>
+
  <% @bookings.each do |booking| %>
-<div class="card-product mb-3 mt-3">
+<div class="card-product mb-3 mt-3" data-bookings-target="myBookings">
 
   <% if booking.car.photo.attached? %>
     <div style="background-image: url(<%= cl_image_path(booking.car.photo.key)%>); background-position: center; height: 120px; background-size: cover; width: 200px; padding: 0px;">
@@ -33,3 +46,4 @@
   </div>
 </div>
 <% end %>
+<%= render 'garage' if @cars.any? %>
