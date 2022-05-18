@@ -1,32 +1,47 @@
-<div class="container mt-5">
-  <h1>Your bookings</h1>
+<div class="container mt-5" data-controller="bookings">
 
-  <table class="table mt-5">
-    <thead>
-      <tr>
-        <th>Image</th>
-        <th>Car</th>
-        <th>Owner's Contact</th>
-        <th>From</th>
-        <th>To</th>
-        <th>Status</th>
-      </tr>
-    </thead>
-    <tbody>
-      <% @bookings.each do |booking| %>
+  <button class="btn btn-primario"
+          data-action="click->bookings#display"
+          data-disable-button-target="button">
+    Garage
+  </button>
+
+  <button class="btn btn-primario"
+          data-action="click->bookings#displayBookings"
+          data-disable-button-target="button">
+    My Bookings
+  </button>
+
+  <div data-bookings-target="myBookings">
+    <h1>Your bookings</h1>
+    <table class="table mt-5">
+      <thead>
         <tr>
-          <% if booking.car.photo.attached? %>
-            <td class="font-white" style="padding: 0px;"><%= cl_image_tag booking.car.photo.key, height: 100, width: 150, crop: :fill, class: "padding: 0px"%></td>
-          <% else %>
-            <td style="background-image: url(https://source.unsplash.com/random/cars); height: 100px; width: 150px; padding: 0px;"></td>
-          <% end %>
-          <td><%= booking.car.car_model %></td>
-          <td><%= booking.car.user.email %></td>
-          <td><%= booking.start_date %></td>
-          <td><%= booking.end_date %></td>
-          <td><%= booking.status %></td>
+          <th>Image</th>
+          <th>Car</th>
+          <th>Owner's Contact</th>
+          <th>From</th>
+          <th>To</th>
+          <th>Status</th>
         </tr>
-      <% end %>
-    </tbody>
-  </table>
+      </thead>
+      <tbody>
+        <% @bookings.each do |booking| %>
+          <tr>
+            <% if booking.car.photo.attached? %>
+              <td class="font-white" style="padding: 0px;"><%= cl_image_tag booking.car.photo.key, height: 100, width: 150, crop: :fill, class: "padding: 0px"%></td>
+            <% else %>
+              <td style="background-image: url(https://source.unsplash.com/random/cars); height: 100px; width: 150px; padding: 0px;"></td>
+            <% end %>
+            <td><%= booking.car.car_model %></td>
+            <td><%= booking.car.user.email %></td>
+            <td><%= booking.start_date %></td>
+            <td><%= booking.end_date %></td>
+            <td><%= booking.status %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+    </div>
+  <%= render 'garage' if @cars.any? %>
 </div>
