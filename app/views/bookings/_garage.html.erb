@@ -1,0 +1,37 @@
+<div class="container mt-5" data-bookings-target="garage">
+  <h1>Garage</h1>
+
+  <table class="table mt-5">
+    <thead>
+      <tr>
+        <th>Image</th>
+        <th>Car</th>
+        <th>Renter's Contact</th>
+        <th>From</th>
+        <th>To</th>
+        <th>Status</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @bookings.each do |booking| %>
+        <tr>
+          <% if booking.car.photo.attached? %>
+            <td class="font-white" style="padding: 0px;"><%= cl_image_tag booking.car.photo.key, height: 100, width: 150, crop: :fill, class: "padding: 0px"%></td>
+          <% else %>
+            <td style="background-image: url(https://source.unsplash.com/random/cars); height: 100px; width: 150px; padding: 0px;"></td>
+          <% end %>
+          <td><%= booking.car.car_model %></td>
+          <td><%= booking.car.user.email %></td>
+          <td><%= booking.start_date %></td>
+          <td><%= booking.end_date %></td>
+          <td>
+            <%= simple_form_for booking do |f| %>
+                <%= f.input :status, collection: Booking.statuses.keys, include_blank: false, label: false %>
+                <%= f.submit class: 'btn btn-outline-dark w-100' %>
+            <% end %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
