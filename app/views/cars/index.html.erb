@@ -1,23 +1,23 @@
 <div class="banner">
-  <div class="container">
-    <h1>No Camp No Life</h1>
-    <p>Get the wheels for the adventure of your life!</p>
-    <a class="btn btn-dark" href="#cars-list">Book now</a>
+  <div class="container text-center">
+    <h1 class="px-5">No Camp No Life</h1>
+    <p class="px-5">Get the wheels for the adventure of your life!</p>
+    <a class="btn btn-primario" href="#cars-list">Book now</a>
   </div>
 </div>
 <div class="container" id="cars-list">
   <div class="row">
       <% @cars.each do |car| %>
         <div class="col-12 col-md-4 col-lg-3">
-          <div class="card-trip mt-5">
+          <div class="card-trip mt-5 mb-5">
           <%= cl_image_tag car.photo.attached? ? car.photo.key : "https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" %>
             <%= link_to '', car_path(car), class: 'card-trip-link' %>
             <div class="card-trip-infos">
               <div>
                 <h2><%= car.car_model %> </h2>
-                <p>Capacity: <%= car.capacity %> people</p>
+                <p>Capacity: <strong><%= car.capacity %> people</strong></p>
               </div>
-              <h2 class="card-trip-pricing">$ <%= car.price_per_day %></h2>
+              <h2 class="card-trip-pricing">¥<%= car.price_per_day %></h2>
             </div>
           </div>
         </div>
