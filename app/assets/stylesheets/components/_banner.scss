@@ -1,129 +1,21 @@
-.card-trip {
-  overflow: hidden;
-  background: white;
-  box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
-  border-radius: 10px;
-  position: relative;
-  transition: all 0.5s;
-
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6,
-  p {
-    color: $blue;
-  }
-
-  p {
-    font-size: 16px !important;
-  }
-
-  ;
+.banner {
+  background-size: cover;
+  background-position: center;
+  padding: 22vh 0;
+  height: 64vh;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.6)), asset-url(camper2);
 }
 
-.card-trip:hover {
-  filter: brightness(92%);
-}
-
-.card-trip>img {
-  height: 200px;
-  width: 100%;
-  object-fit: cover;
-}
-
-.card-trip h2 {
-  font-size: 16px;
+.banner h1 {
+  margin: 0;
+  color: white;
+  text-shadow: 1px 1px 3px rgba(0, 0, 8px, 0.6);
+  font-size: 64px;
   font-weight: bold;
-  margin: 0;
 }
 
-.card-trip p {
-  font-size: 12px;
-  margin: 0;
-}
-
-.card-trip-link {
-  position: absolute;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  width: 100%;
-}
-
-.card-trip .card-trip-infos {
-  padding: 16px;
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-end;
-  position: relative;
-}
-
-.card-trip-infos .card-trip-user {
-  position: absolute;
-  right: 16px;
-  top: -20px;
-  width: 40px;
-}
-
-.card {
-  display: grid;
-  background-color: rgba(255, 255, 255, 0);
-  border: none;
-  grid-template-columns: 4fr 3fr;
-  width: 100%;
-
-  img {
-    height: 100%;
-    width: 100%;
-    object-fit: cover;
-    margin-right: 8px;
-  }
-}
-
-.row {
-  padding-left: 0 !important;
-}
-
-
-// CARD PRODUCT
-
-.card-product {
-  overflow: hidden;
-  height: 120px;
-  background: white;
-  box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
-  display: flex;
-  align-items: center;
-  border-radius: 12px;
-}
-
-.card-product img {
-  height: 120px;
-  max-width: 200px;
-  object-fit: cover;
-}
-
-.card-product h2 {
-  font-size: 28px;
-  font-weight: bold;
-  margin: 0;
-  display: inline;
-}
-
-.card-product p {
-  font-size: 14px;
-  line-height: 1.4;
-  opacity: .7;
-  margin-bottom: 0;
-  margin-top: 8px;
-}
-
-.card-product .card-product-infos {
-  padding: 16px;
-}
-
-.max-width {
-  width: 200px;
+.banner p {
+  font-size: 20px;
+  color: white;
+  text-shadow: 1px 1px 3px rgba(0, 0, 8px, 0.8);
 }
