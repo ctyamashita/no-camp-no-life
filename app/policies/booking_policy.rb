@@ -16,4 +16,10 @@ class BookingPolicy < ApplicationPolicy
       scope.all
     end
   end
+
+  private
+
+  def user_is_owner?
+    record.user == user
+  end
 end
