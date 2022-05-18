@@ -1,6 +1,6 @@
 class CarsController < ApplicationController
   def index
-    @cars = policy_scope(Car).order(created_at: :asc)
+    @cars = policy_scope(Car.where.not(user: current_user)).order(created_at: :asc)
   end
 
   def show
@@ -20,7 +20,19 @@ class CarsController < ApplicationController
     authorize @car
 
     if @car.save
-      redirect_to cars_path(@car)
+      redirect_to car_path(@car)
+    else
+      render :new
+    end
+  end
+
+  def update
+    @car = Car.find(params[:id])
+    @car.update(car_params)
+    authorize @car
+
+    if @car.save
+      redirect_to car_path(@car)
     else
       render :new
     end
