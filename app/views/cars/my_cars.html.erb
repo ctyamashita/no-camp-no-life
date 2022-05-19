@@ -1,0 +1,21 @@
+<div class="container mt-5 col-12">
+  <div class="d-flex align-items-center mb-5">
+  <h1>My page</h1>
+    <%= link_to 'My cars', my_cars_cars_path, class: "btn btn-primario ms-3"  %>
+    <%= link_to "My Bookings", bookings_path, class: "btn btn-primario ms-3", 'data-action': "click->bookings#displayBookings", 'data-disable-button-target': "button" %>
+    <%= link_to 'Booking requests', my_cars_bookings_path, class: "btn btn-primario ms-3" %>
+  </div>
+  <hr>
+
+  <div class="mt-5 col-12" data-bookings-target="garage">
+    <h2>My vehicles</h2>
+    <div class='cards'>
+      <% @my_cars.each do |car| %>
+        <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= car.photo.attached? ? cl_image_path(car.photo.key) : '/assets/not-available.jpg' %>)">
+          <%= car.car_model %>
+          <%= link_to '', car_path(car), class: 'card-category-link' %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

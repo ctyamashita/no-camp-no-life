@@ -17,8 +17,13 @@ class CarPolicy < ApplicationPolicy
     user_is_owner?
   end
 
+<<<<<<< HEAD
+  def my_cars?
+    true
+=======
   def destroy?
     user_is_owner?
+>>>>>>> main
   end
 
   private
