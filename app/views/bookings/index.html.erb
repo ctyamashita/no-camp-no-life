@@ -1,24 +1,16 @@
-<div class="container mt-5 col-12" data-controller="bookings">
+<div class="container mt-5 col-12">
   <div class="d-flex align-items-center mb-5">
   <h1>My page</h1>
-
-    <button class="btn btn-primario ms-5"
-            data-action="click->bookings#display"
-            data-disable-button-target="button">
-      My vehicles
-    </button>
-    <button class="btn btn-primario ms-3"
-            data-action="click->bookings#displayBookings"
-            data-disable-button-target="button">
-      My Bookings
-    </button>
+    <%= link_to 'My cars', my_cars_cars_path, class: "btn btn-primario ms-3"  %>
+    <%= link_to "My Bookings", bookings_path, class: "btn btn-primario ms-3" %>
+    <%= link_to 'Booking requests', my_cars_bookings_path, class: "btn btn-primario ms-3" %>
   </div>
   <hr>
 
-<%= render 'garage' %>
-<div class="mt-5 col-12" data-bookings-target="myBookings">
-<h2 class="mt-3">My Bookings</h2>
-  <% @bookings.each do |booking| %>
-    <%= render 'booking_card', booking: booking %>
-  <% end %>
+  <div class="mt-5 col-12">
+    <h2 class="mt-3">Bookings</h2>
+    <% @bookings.each do |booking| %>
+      <%= render 'booking_card', booking: booking %>
+    <% end %>
+  </div>
 </div>

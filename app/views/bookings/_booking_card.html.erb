@@ -21,10 +21,23 @@
       <p><i class="md-icon mb-2 fas fa-calendar-alt"></i> To<br> <strong><%= booking.end_date %></strong></p>
     </div>
     <div>
-      <p><i class="md-icon mb-2 fas fa-shield-alt"></i> Status <br> <strong><%= booking.status %></strong></p>
+      <p><i class="far fa-money-bill-alt"></i> Total:<br> <strong> ¥<%= booking.end_date == booking.start_date ? booking.car.price_per_day : (booking.car.price_per_day * (booking.end_date - booking.start_date)).to_i %></strong></p>
     </div>
     <div>
-      <p><i class="far fa-money-bill-alt"></i> Total:<br> <strong> ¥<%= (booking.car.price_per_day * (booking.end_date - booking.start_date)).to_i %></strong></p>
+        <% if current_user == booking.car.user %>
+          <strong>
+            <div class="border-start ps-5">
+              <%= simple_form_for booking do |f| %>
+                <%= f.input :status, collection: Booking.statuses.keys, include_blank: false, label: false %>
+                <%= f.submit class: 'btn btn-primario w-100 rounded-input' %>
+              <% end %>
+            </div>
+          </strong>
+        <% else %>
+          <p><i class="md-icon mb-2 fas fa-shield-alt"></i> Status <br>
+          <strong><%= booking.status %></strong>
+        <% end %>
+      </p>
     </div>
   </div>
 </div>

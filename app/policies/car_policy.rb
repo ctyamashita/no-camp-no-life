@@ -17,6 +17,10 @@ class CarPolicy < ApplicationPolicy
     user_is_owner?
   end
 
+  def my_cars?
+    true
+  end
+
   private
 
   def user_is_owner?
