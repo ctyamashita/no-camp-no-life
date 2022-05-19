@@ -1,7 +1,14 @@
 class BookingsController < ApplicationController
   def index
     @bookings = policy_scope(current_user.bookings).order(created_at: :asc)
-    @cars = policy_scope(Booking.where(car: Car.where(user: current_user))).order(created_at: :asc)
+    @my_cars = policy_scope(Car.where(user: current_user))
+  end
+
+  def my_cars
+    @bookings = policy_scope(Booking.where(car: Car.where(user: current_user))).order(created_at: :asc)
+    @my_cars = policy_scope(Car.where(user: current_user))
+    authorize @bookings
+    render 'bookings/index'
   end
 
   def create
@@ -22,7 +29,7 @@ class BookingsController < ApplicationController
     @booking = Booking.find(params[:id])
     authorize @booking
     if @booking.update(update_params)
-      redirect_to bookings_path, notice: 'Booking was successfully updated.'
+      redirect_to my_cars_bookings_path, notice: 'Booking was successfully updated.'
     else
       render :edit
     end
@@ -32,7 +39,11 @@ class BookingsController < ApplicationController
     @booking = Booking.find(params[:id])
     authorize @booking
     @booking.destroy
-    redirect_to bookings_path
+    if current_user == @booking.car.user
+      redirect_to my_cars_bookings_path
+    else
+      redirect_to bookings_path
+    end
   end
 
   private

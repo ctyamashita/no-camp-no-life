@@ -26,10 +26,16 @@ class CarsController < ApplicationController
 
   end
 
+  def my_cars
+    @my_cars = policy_scope(Car.where(user: current_user))
+    authorize @my_cars
+  end
+
   def show
     @car = Car.find(params[:id])
     authorize @car
     @booking = Booking.new
+    @my_car = @car.user == current_user
   end
 
   def new
@@ -43,7 +49,7 @@ class CarsController < ApplicationController
     authorize @car
 
     if @car.save
-      redirect_to bookings_path, notice: "#{@car.car_model} has been added"
+      redirect_to my_cars_cars_path, notice: "#{@car.car_model} has been added"
     else
       render :new
     end
@@ -55,7 +61,7 @@ class CarsController < ApplicationController
     authorize @car
 
     if @car.save
-      redirect_to car_path(@car)
+      redirect_to my_cars_cars_path
     else
       render :new
     end

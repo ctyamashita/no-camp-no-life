@@ -1,0 +1,46 @@
+<div class="card-product mb-3 mt-3">
+  <div
+    style="background-image: url(<%= booking.car.photo.attached? ? cl_image_path(booking.car.photo.key) : '/assets/not-available.jpg' %>);
+    background-position: center; height: 120px;
+    background-size: cover;
+    width: 200px;
+    padding: 0px;">
+  </div>
+
+  <div class="d-flex w-100 card-product-infos justify-content-evenly align-items-center text-center">
+    <div class="max-width">
+      <h2><%= booking.car.car_model %></h2>
+    </div>
+    <div>
+      <p><i class="md-icon mb-2 fas fa-envelope"></i> Contact<br><strong><%= booking.car.user.email %></strong></p>
+    </div>
+    <div>
+      <p><i class="md-icon mb-2 fas fa-calendar-alt"></i> From<br> <strong><%= booking.start_date %></strong></p>
+    </div>
+    <div>
+      <p><i class="md-icon mb-2 fas fa-calendar-alt"></i> To<br> <strong><%= booking.end_date %></strong></p>
+    </div>
+    <div>
+      <p><i class="far fa-money-bill-alt"></i> Total:<br> <strong> ¥<%= booking.end_date == booking.start_date ? booking.car.price_per_day : (booking.car.price_per_day * (booking.end_date - booking.start_date)).to_i %></strong></p>
+    </div>
+    <div>
+        <% if current_user == booking.car.user %>
+          <strong>
+            <div class="border-start ps-5">
+              <%= simple_form_for booking do |f| %>
+                <%= f.input :status, collection: Booking.statuses.keys, include_blank: false, label: false %>
+                <%= f.submit class: 'btn btn-primario w-100 rounded-input' %>
+              <% end %>
+            </div>
+          </strong>
+        <% else %>
+          <p><i class="md-icon mb-2 fas fa-shield-alt"></i> Status <br>
+          <strong><%= booking.status %></strong>
+        <% end %>
+      </p>
+    </div>
+    <div>
+      <%= link_to "❌", booking_path(booking), method: :delete, data: { confirm: "Are you sure you want to delete?" }%>
+    </div>
+  </div>
+</div>

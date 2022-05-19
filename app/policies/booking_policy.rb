@@ -21,6 +21,10 @@ class BookingPolicy < ApplicationPolicy
     end
   end
 
+  def my_cars?
+    true
+  end
+
   def user_is_owner?
     record.car.user == user
   end
