@@ -29,7 +29,7 @@ class BookingsController < ApplicationController
     @booking = Booking.find(params[:id])
     authorize @booking
     if @booking.update(update_params)
-      redirect_to bookings_path, notice: 'Booking was successfully updated.'
+      redirect_to my_cars_bookings_path, notice: 'Booking was successfully updated.'
     else
       render :edit
     end
