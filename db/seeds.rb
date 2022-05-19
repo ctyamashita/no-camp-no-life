@@ -18,20 +18,21 @@ puts "creating users & cars"
 Booking.destroy_all
 Car.destroy_all
 User.destroy_all
-User.create!(email: 'haha@haha.com', password: 'hahaha')
+User.create!(email: 'nocamp@nolife.com', password: 'nolife')
 4.times do
   user = User.create!(
     email: Faker::Internet.email,
     password: "password"
     # no need ==> reset_password_token:
   )
-  4.times do
+  20.times do
     car = Car.create!(
       car_model: Faker::Vehicle.make_and_model,
       capacity: rand(4..8),
       description: Faker::Vehicle.car_options.join(", "),
       price_per_day: rand(1111..9999),
-      user: user
+      user: user,
+      address: Faker::Address.city
     )
     file = URI.open(IMAGE_URLS.sample)
     car.photo.attach(io: file, filename: 'filename.jpg', content_type: 'image/jpg')

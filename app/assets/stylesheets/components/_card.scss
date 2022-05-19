@@ -39,21 +39,6 @@
   width: 100%;
 }
 
-.card-trip .card-trip-infos {
-  padding: 16px;
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-end;
-  position: relative;
-}
-
-.card-trip-infos .card-trip-user {
-  position: absolute;
-  right: 16px;
-  top: -20px;
-  width: 40px;
-}
-
 .card {
   display: grid;
   background-color: rgba(255, 255, 255, 0);
@@ -181,4 +166,31 @@
   .cards {
     grid-template-columns: 1fr 1fr 1fr;
   }
+}
+
+.card-delete {
+  color: #fff;
+  list-style: none;
+  text-decoration: none;
+  position: absolute;
+  display: none;
+  font-size: 24px;
+  transition: all 0.5s;
+}
+
+.delete-position {
+  right: 12px;
+  top: 12px;
+}
+
+.update-position {
+  right: 42px;
+  top: 13px;
+  font-size: 20px;
+}
+
+
+.card-category:hover .card-delete {
+  display: block;
+  color: $light-gray;
 }

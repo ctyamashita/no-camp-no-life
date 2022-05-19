@@ -3,6 +3,9 @@
   box-shadow: 0 0 4px rgba($color: #000000, $alpha: 0.1);
   background-color: #fff;
   border-radius: 20px;
+  p {
+    font-size: 12px
+  };
 }
 
 .input:hover {

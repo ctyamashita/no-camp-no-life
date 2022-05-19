@@ -13,7 +13,9 @@
       <% @my_cars.each do |car| %>
         <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= car.photo.attached? ? cl_image_path(car.photo.key) : '/assets/not-available.jpg' %>)">
           <%= car.car_model %>
-          <%= link_to '', car_path(car), class: 'card-category-link' %>
+          <%= link_to '', car_path(car), class: 'card-delete delete-position fas fa-times', method: :delete, data: { confirm: "Are you sure you want to delete #{car.car_model}?" } %>
+          <%= link_to '', car_path(car), class: 'card-delete update-position fas fa-pen' %>
+
         </div>
       <% end %>
     </div>
