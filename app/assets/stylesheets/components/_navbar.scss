@@ -1,6 +1,6 @@
 .navbar-lewagon {
   justify-content: space-between;
-  background: $gray;
+  background: $blue;
   box-shadow: 0 0 8px rgba($color: #000000, $alpha: 0.5);
   a {
     color: $light-gray !important;
@@ -18,8 +18,9 @@
 }
 
 .dropdown-menu {
-  background-color: $gray !important;
+  background-color: $blue!important;
   transition: all 0.3s;
+  border-radius: 8px;
   border: none;
   padding: 4px;
 }

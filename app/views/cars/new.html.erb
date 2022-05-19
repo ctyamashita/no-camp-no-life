@@ -3,11 +3,11 @@
     <div class="col-12 col-sm-12 col-md-6 col-xl-4 col-xxl-4 my-5">
       <h1>Add car</h1>
       <%= simple_form_for @car do |f| %>
-        <%= f.input :car_model %>
-        <%= f.input :capacity %>
-        <%= f.input :description %>
-        <%= f.input :price_per_day %>
-        <%= f.input :photo, as: :file %>
+        <%= f.input :car_model, input_html: { class: "input" } %>
+        <%= f.input :capacity, input_html: { class: "input" } %>
+        <%= f.input :description, input_html: { class: "input" } %>
+        <%= f.input :price_per_day, input_html: { class: "input" } %>
+        <%= f.input :photo, as: :file, input_html: { class: "input" } %>
         <%= f.submit class: 'btn btn-primario mt-3'%>
       <% end %>
     </div>
