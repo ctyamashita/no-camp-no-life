@@ -2,6 +2,16 @@
   <div class="container-fluid">
     <%= link_to "No Camp No Life",cars_path, class: "navbar-brand" %>
 
+    <%= form_tag root_path, method: :get, class: 'd-flex' do %>
+      <%= text_field_tag :q,
+        params[:q],
+        class: "form-control",
+        placeholder: "Find by location"
+      %>
+      <%= submit_tag "Search", class: "btn btn-primary" %>
+    <% end %>
+
+
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
