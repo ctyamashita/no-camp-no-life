@@ -1,1 +1,10 @@
-<%= render 'card_car_info', car: car %>
+<%= cl_image_tag car.photo.attached? ? car.photo.key : '/assets/not-available.jpg' %>
+<%= link_to '', car_path(car), class: 'card-trip-link' %>
+<div class="p-3">
+  <h2><%= car.car_model %> </h2>
+  <div class="d-flex">
+    <p class="me-3"><i class="far fa-money-bill-alt"></i> ¥<%= car.price_per_day %></p>
+    <p><i class="fas fa-users"></i> <%= car.capacity %></p>
+  </div>
+  <p><i class="fas fa-map-marker"></i> <%= car.address %></p>
+</div>

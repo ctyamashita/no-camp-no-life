@@ -11,7 +11,7 @@ class CarsController < ApplicationController
         }
       end
     elsif params[:address].present?
-      @cars = policy_scope(Car.near(params[:address], 70))
+      @cars = policy_scope(Car.near(params[:address], 2000))
       @markers = @cars.geocoded.map do |car|
         {
           lat: car.latitude,

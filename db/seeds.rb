@@ -25,7 +25,7 @@ User.create!(email: 'nocamp@nolife.com', password: 'nolife')
     password: "password"
     # no need ==> reset_password_token:
   )
-  20.times do
+  10.times do
     car = Car.create!(
       car_model: Faker::Vehicle.make_and_model,
       capacity: rand(4..8),

@@ -1,11 +1,11 @@
 <div class="card-trip">
   <img src="<%= car.photo.attached? ? cl_image_path(car.photo.key) :  'https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg' %>" />
-  <div class="card-trip-infos">
-    <div>
-      <h3><%= car.car_model %></h2>
-      <p><%= car.description %></p>
-      <p><i class="fas fa-users me-2"></i><%= car.capacity %></p>
-    </div>
-    <p class="card-trip-pricing"><i class="far fa-money-bill-alt me-2"></i>¥<%= car.price_per_day %></h2>
-  </div>
+  <div class="p-3">
+          <h2><%= car.car_model %> </h2>
+          <div class="d-flex">
+            <p class="me-3"><i class="far fa-money-bill-alt"></i> ¥<%= car.price_per_day %></p>
+            <p><i class="fas fa-users"></i> <%= car.capacity %></p>
+          </div>
+          <p><i class="fas fa-map-marker"></i> <%= car.address %></p>
+        </div>
 </div>

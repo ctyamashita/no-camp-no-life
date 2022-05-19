@@ -1,8 +1,10 @@
-<div class="form-box pe-4">
+<div class="form-box pe-4 d-flex">
   <%= simple_form_for [@car, @booking] do |f| %>
-    <%= f.input :start_date, as: :date, html5: true, input_html: { min: Date.today }%>
-    <%= f.input :end_date, as: :date, html5: true %>
-    <%= f.submit class: 'btn btn-primario me-3 mt-3'%>
-    <%= link_to 'Back', cars_path, class: 'btn btn-primario mt-3' %>
+  <div class="d-flex justify-content-between">
+      <%= f.input :start_date, as: :date, html5: true, input_html: { min: Date.today, class: 'input small-input' }%>
+      <%= f.input :end_date, as: :date, html5: true, input_html: { class: 'input small-input' } %>
+  </div>
+      <%= f.submit class: 'btn btn-primario me-3 mt-3'%>
+      <%= link_to 'Back', cars_path, class: 'btn btn-primario mt-3' %>
   <% end %>
 </div>
