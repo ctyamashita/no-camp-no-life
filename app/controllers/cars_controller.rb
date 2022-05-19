@@ -30,7 +30,7 @@ class CarsController < ApplicationController
     authorize @car
 
     if @car.save
-      redirect_to my_cars_cars_path
+      redirect_to my_cars_cars_path, notice: "#{@car.car_model} has been added"
     else
       render :new
     end
