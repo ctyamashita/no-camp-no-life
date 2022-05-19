@@ -1,0 +1,19 @@
+.input {
+  border-color: $light-gray !important;
+  box-shadow: 0 0 4px rgba($color: #000000, $alpha: 0.1);
+  background-color: #fff;
+  border-radius: 20px;
+}
+
+.input:hover {
+  box-shadow: 0 0 4px rgba($color: #000000, $alpha: 0.3)
+}
+
+.input:focus {
+  border-color: $gray;
+  box-shadow: 0 0 4px rgba($color: #000000, $alpha: 0.3)
+}
+
+.form-control.is-valid {
+  background-image: none;
+}
