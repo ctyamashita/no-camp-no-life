@@ -39,7 +39,11 @@ class BookingsController < ApplicationController
     @booking = Booking.find(params[:id])
     authorize @booking
     @booking.destroy
-    redirect_to bookings_path
+    if current_user == @booking.car.user
+      redirect_to my_cars_bookings_path
+    else
+      redirect_to bookings_path
+    end
   end
 
   private

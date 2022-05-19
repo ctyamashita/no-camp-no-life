@@ -39,5 +39,8 @@
         <% end %>
       </p>
     </div>
+    <div>
+      <%= link_to "❌", booking_path(booking), method: :delete, data: { confirm: "Are you sure you want to delete?" }%>
+    </div>
   </div>
 </div>
