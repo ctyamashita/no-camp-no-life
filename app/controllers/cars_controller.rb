@@ -49,6 +49,13 @@ class CarsController < ApplicationController
     end
   end
 
+  def destroy
+    @car = Car.find(params[:id])
+    authorize @car
+    @car.destroy
+    redirect_to bookings_path
+  end
+
   private
 
   def car_params
