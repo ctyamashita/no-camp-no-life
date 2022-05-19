@@ -6,7 +6,6 @@ class BookingsController < ApplicationController
   def my_cars
     @bookings = policy_scope(Booking.where(car: Car.where(user: current_user))).order(created_at: :asc)
     authorize @bookings
-    render 'bookings/index'
   end
 
   def create

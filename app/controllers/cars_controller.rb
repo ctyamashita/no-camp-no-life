@@ -52,7 +52,7 @@ class CarsController < ApplicationController
     @car = Car.find(params[:id])
     authorize @car
     @car.destroy
-    redirect_to bookings_path
+    redirect_to my_cars_cars_path
   end
 
   private
