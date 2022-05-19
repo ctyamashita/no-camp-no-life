@@ -2,7 +2,16 @@ class CarsController < ApplicationController
   def index
 
     if params[:q].present?
-      @cars = policy_scope(Car.search_by_car_model_and_address_and_description_and_capacity(params[:q]))
+      @cars = policy_scope(Car.search_by_car_model_and_description_and_capacity(params[:q]))
+      @markers = @cars.geocoded.map do |car|
+        {
+          lat: car.latitude,
+          lng: car.longitude,
+          info_window: render_to_string(partial: 'cars/info_window', locals: { car: car })
+        }
+      end
+    elsif params[:address].present?
+      @cars = policy_scope(Car.near(params[:address], 70))
       @markers = @cars.geocoded.map do |car|
         {
           lat: car.latitude,
@@ -14,7 +23,7 @@ class CarsController < ApplicationController
       @cars = policy_scope(Car.where.not(user: current_user)).order(created_at: :asc)
     end
 
-    @cars = @cars.near(params[:address, 200]) if params[:address]
+
   end
 
   def show

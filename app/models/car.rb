@@ -3,8 +3,8 @@ class Car < ApplicationRecord
   has_many :bookings
   has_one_attached :photo
   include PgSearch::Model
-  pg_search_scope :search_by_car_model_and_address_and_description_and_capacity,
-                  against: [ :car_model, :address, :description, :capacity ],
+  pg_search_scope :search_by_car_model_and_description_and_capacity,
+                  against: [ :car_model, :description, :capacity ],
                   using: {
                     tsearch: { prefix: true }
                   }
