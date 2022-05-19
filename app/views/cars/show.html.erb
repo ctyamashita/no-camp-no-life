@@ -1,12 +1,8 @@
 <div class="container">
   <div class="row mt-5">
-    <div class="card">
-      <img class="show-img" src=<%= @car.photo.attached? ? cl_image_path(@car.photo.key) : 'https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg' %> />
-    <div class="col">
-
     <% if @car.user == current_user %>
-      <div class="col-12 col-md-10 ms-4">
-        <div>
+      <div class="container col-12">
+        <div class=" col-4 offset-4">
           <h1>Update <strong><%= @car.car_model %></strong></h1>
           <%= simple_form_for @car do |f| %>
             <%= f.input :car_model, input_html: { class: "input" } %>
@@ -19,6 +15,9 @@
         </div>
       </div>
     <% else %>
+    <div class="card">
+      <img class="show-img me-5" src=<%= @car.photo.attached? ? cl_image_path(@car.photo.key) : 'https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg' %> />
+    <div class="col">
         <div class="row">
           <div class="col-12 col-md-10 ms-4">
             <div>

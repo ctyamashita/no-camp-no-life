@@ -1,5 +1,5 @@
 .input {
-  border-color: $light-gray !important;
+  border-color: $gray !important;
   box-shadow: 0 0 4px rgba($color: #000000, $alpha: 0.1);
   background-color: #fff;
   border-radius: 20px;
@@ -11,7 +11,8 @@
 
 .input:focus {
   border-color: $gray;
-  box-shadow: 0 0 4px rgba($color: #000000, $alpha: 0.3)
+  box-shadow: 0 0 4px rgba($color: #000000, $alpha: 0.3);
+  background-color: $light-gray;
 }
 
 .form-control.is-valid {
