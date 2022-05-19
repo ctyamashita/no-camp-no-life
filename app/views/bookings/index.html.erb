@@ -1,20 +1,23 @@
 <div class="container mt-5 col-12" data-controller="bookings">
-  <h1>Your bookings</h1>
+  <div class="d-flex align-items-center mb-5">
+  <h1>My page</h1>
 
-  <button class="btn btn-primario"
-          data-action="click->bookings#display"
-          data-disable-button-target="button">
-    Garage
-  </button>
-
-  <button class="btn btn-primario"
-          data-action="click->bookings#displayBookings"
-          data-disable-button-target="button">
-    My Bookings
-  </button>
+    <button class="btn btn-primario ms-5"
+            data-action="click->bookings#display"
+            data-disable-button-target="button">
+      Garage
+    </button>
+    <button class="btn btn-primario ms-3"
+            data-action="click->bookings#displayBookings"
+            data-disable-button-target="button">
+      My Bookings
+    </button>
+  </div>
+  <hr>
 
 <%= render 'garage' %>
-<div data-bookings-target="myBookings">
+<div class="mt-5 col-12" data-bookings-target="myBookings">
+<h2 class="mt-3">My Bookings</h2>
   <% @bookings.each do |booking| %>
   <div class="card-product mb-3 mt-3">
 
@@ -26,26 +29,33 @@
     <% end %>
 
 
-    <div class="d-flex w-100 card-product-infos justify-content-evenly align-items-center">
+    <div class="d-flex w-100 card-product-infos justify-content-evenly align-items-center text-center">
       <div class="max-width">
         <h2><%= booking.car.car_model %></h2>
       </div>
       <div>
-        <p>Owner contact: <strong><%= booking.car.user.email %></strong></p>
+        <p><i class="md-icon mb-2 fas fa-envelope"></i> Contact<br><strong><%= booking.car.user.email %></strong></p>
       </div>
         <div>
-          <p>From: <br> <strong><%= booking.start_date %></strong></p>
+          <p><i class="md-icon mb-2 fas fa-calendar-alt"></i> From<br> <strong><%= booking.start_date %></strong></p>
         </div>
         <div>
-          <p>To: <br> <strong><%= booking.end_date %></strong></p>
+          <p><i class="md-icon mb-2 fas fa-calendar-alt"></i> To<br> <strong><%= booking.end_date %></strong></p>
         </div>
         <div>
-          <p>Status: <br> <strong><%= booking.status %></strong></p>
+          <p><i class="md-icon mb-2 fas fa-shield-alt"></i> Status <br> <strong><%= booking.status %></strong></p>
         </div>
         <div>
-          <p><strong>Total: ¥<%= (booking.car.price_per_day * (booking.end_date - booking.start_date)).to_i %></strong></p>
+          <p><i class="far fa-money-bill-alt"></i> Total:<br> <strong> ¥<%= (booking.car.price_per_day * (booking.end_date - booking.start_date)).to_i %></strong></p>
         </div>
     </div>
   </div>
   <% end %>
 </div>
+
+
+
+
+
+
+<%# MY CODE %>

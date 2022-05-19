@@ -1,43 +1,51 @@
-<div class="container mt-5" data-bookings-target="garage">
-   <h3>My cars</h3>
-    <% Car.where(user: current_user).each do |car| %>
-      <%= link_to car.car_model, car_path(car), class: 'btn btn-outline' %>
-    <% end %>
-<hr>
+
+<div class="mt-5 col-12" data-bookings-target="garage">
+  <h2>My vehicles</h2>
+  <% Car.where(user: current_user).each do |car| %>
+  <div class="card-category mt-3" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)),  url(<%= cl_image_path(car.photo.key)%>)">
+  <%= car.car_model %>
+  <%= link_to '', car_path(car), class: 'card-category-link' %>
+  </div>
+  <% end %>
+
+<%# <%= link_to car.car_model, car_path(car), class: 'btn btn-outline' %>
+
+  <hr class="my-5">
+  <h2>Booking requests</h2>
   <% if @cars.any? %>
-    <table class="table mt-5">
-      <thead>
-        <tr>
-          <th>Image</th>
-          <th>Car</th>
-          <th>Renter's Contact</th>
-          <th>From</th>
-          <th>To</th>
-          <th>Status</th>
-        </tr>
-      </thead>
-      <tbody>
-        <% @cars.each do |booking| %>
-          <tr>
-            <% if booking.car.photo.attached? %>
-              <td class="font-white" style="padding: 0px;"><%= cl_image_tag booking.car.photo.key, height: 100, width: 150, crop: :fill, class: "padding: 0px"%></td>
-            <% else %>
-              <td style="background-image: url(https://source.unsplash.com/random/cars); height: 100px; width: 150px; padding: 0px;"></td>
-            <% end %>
-            <td><%= booking.car.car_model %></td>
-            <td><%= booking.user.email %></td>
-            <td><%= booking.start_date %></td>
-            <td><%= booking.end_date %></td>
-            <td>
-              <%= simple_form_for booking do |f| %>
-                  <%= f.input :status, collection: Booking.statuses.keys, include_blank: false, label: false %>
-                  <%= f.submit class: 'btn btn-outline-dark w-100' %>
-              <% end %>
-            </td>
-          </tr>
-        <% end %>
-      </tbody>
-    </table>
+  <% @cars.each do |booking| %>
+    <div class="card-product mb-3 mt-3">
+      <% if booking.car.photo.attached? %>
+        <div style="background-image: url(<%= cl_image_path(booking.car.photo.key)%>); background-position: center; height: 120px; background-size: cover; width: 200px; padding: 0px;">
+        </div>
+      <% else %>
+        <div style="background-image: url(/assets/not-available.jpg); filter: grayscale(100%); background-position: center; height: 120px; background-size: cover; width: 200px; padding: 0px;"></div>
+      <% end %>
+      <div class="d-flex w-100 card-product-infos justify-content-evenly align-items-center text-center">
+        <div class="max-width">
+          <h2><%= booking.car.car_model %></h2>
+        </div>
+        <div class="border-end pe-3">
+          <p><i class="md-icon mb-2 fas fa-envelope"></i> Contact<br><strong><%= booking.car.user.email %></strong></p>
+        </div>
+        <div class="border-end px-5">
+          <p><i class="md-icon mb-2 fas fa-calendar-alt"></i> From<br> <strong><%= booking.start_date %></strong></p>
+        </div>
+        <div class="border-end px-5">
+          <p><i class="md-icon mb-2 fas fa-calendar-alt"></i> To<br> <strong><%= booking.end_date %></strong></p>
+        </div>
+        <div class="pe-5">
+          <p><i class="md-icon mb-2 fas fa-shield-alt"></i> Status <br> <strong><%= booking.status %></strong></p>
+        </div>
+        <div class="border-start ps-5">
+          <%= simple_form_for booking do |f| %>
+            <%= f.input :status, collection: Booking.statuses.keys, include_blank: false, label: false %>
+            <%= f.submit class: 'btn btn-primario w-100 rounded-input' %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  <% end %>
   <% else %>
     <p>No reservations made.</p>
   <% end %>
