@@ -1,6 +1,6 @@
 <div class="form-box pe-4">
   <%= simple_form_for [@car, @booking] do |f| %>
-    <%= f.input :start_date, as: :date, html5: true %>
+    <%= f.input :start_date, as: :date, html5: true, input_html: { min: Date.today }%>
     <%= f.input :end_date, as: :date, html5: true %>
     <%= f.submit class: 'btn btn-primario me-3 mt-3'%>
     <%= link_to 'Back', cars_path, class: 'btn btn-primario mt-3' %>
