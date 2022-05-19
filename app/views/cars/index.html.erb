@@ -1,4 +1,4 @@
-<% if params[:q].present? %>
+<% if params[:q].present? || params[:address].present? %>
   <div style="width: 100%; height: 100vh; margin: 0; padding: 0"
     data-controller="mapbox"
     data-mapbox-markers-value="<%= @markers.to_json %>"
@@ -20,7 +20,7 @@
       <% @cars.each do |car| %>
         <div class="col-12 col-md-4 col-lg-3">
           <div class="card-trip mt-5 mb-5">
-          <%= cl_image_tag car.photo.attached? ? car.photo.key : "https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" %>
+          <%= cl_image_tag car.photo.attached? ? car.photo.key : '/assets/not-available.jpg' %>
             <%= link_to '', car_path(car), class: 'card-trip-link' %>
             <div class="card-trip-infos">
               <div>

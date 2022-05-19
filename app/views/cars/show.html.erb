@@ -16,7 +16,7 @@
       </div>
     <% else %>
     <div class="card">
-      <img class="show-img me-5" src=<%= @car.photo.attached? ? cl_image_path(@car.photo.key) : 'https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg' %> />
+      <img class="show-img me-5" src=<%= @car.photo.attached? ? cl_image_path(@car.photo.key) : '/assets/not-available.jpg' %> />
     <div class="col">
         <div class="row">
           <div class="col-12 col-md-10 ms-4">
