@@ -1,0 +1,16 @@
+
+.mapboxgl-popup-content {
+  background: rgba($color: #000000, $alpha: 0);
+  padding: 0;
+  margin: 0;
+}
+
+.mapboxgl-popup-close-button {
+  outline: none;
+  color:crimson;
+  size: 100px;
+}
+
+.mapboxgl-popup-close-button:hover {
+  background-color: rgba(0, 0, 0, 0);
+}
