@@ -10,6 +10,6 @@ class Booking < ApplicationRecord
   validate :check_dates
 
   def check_dates
-    errors.add(:end_date, "should not be before start date") if end_date && start_date && end_date <= start_date
+    errors.add(:end_date, "should not be before start date") if end_date && start_date && end_date < start_date
   end
 end
