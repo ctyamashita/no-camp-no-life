@@ -12,7 +12,7 @@ class BookingsController < ApplicationController
     authorize @booking
 
     if @booking.save
-      redirect_to bookings_path
+      redirect_to bookings_path, notice: 'Booking was added'
     else
       render "cars/show"
     end
