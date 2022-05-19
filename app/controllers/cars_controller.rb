@@ -49,7 +49,7 @@ class CarsController < ApplicationController
     authorize @car
 
     if @car.save
-      redirect_to car_path(@car)
+      redirect_to my_cars_cars_path
     else
       render :new
     end
@@ -61,7 +61,7 @@ class CarsController < ApplicationController
     authorize @car
 
     if @car.save
-      redirect_to bookings_path
+      redirect_to my_cars_cars_path
     else
       render :new
     end
