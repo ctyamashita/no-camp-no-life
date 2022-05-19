@@ -18,8 +18,9 @@
 }
 
 .dropdown-menu {
-  background-color: $gray !important;
+  background-color: $blue!important;
   transition: all 0.3s;
+  border-radius: 8px;
   border: none;
   padding: 4px;
 }

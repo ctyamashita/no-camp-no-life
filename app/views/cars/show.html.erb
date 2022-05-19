@@ -23,7 +23,11 @@
             <div>
               <h1><strong><%= @car.car_model %></strong></h1>
               <p><%= @car.description %></p>
-              <p class="border-bottom pb-3"><i class="fas fa-users"></i><strong> <%= @car.capacity %> people</strong> | <i class="far fa-money-bill-alt"></i> <strong>¥<%= @car.price_per_day %>/day</strong></p>
+              <div class="d-flex">
+                <p class="border-bottom pb-3 me-5"><i class="fas fa-users"></i><strong> <%= @car.capacity %> people</strong></p>
+                <p class="border-bottom pb-3"><i class="far fa-money-bill-alt"></i> <strong>¥<%= @car.price_per_day %>/day</strong></p>
+              </div>
+
             </div>
           </div>
       </div>
