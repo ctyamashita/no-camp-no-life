@@ -40,7 +40,7 @@
       </p>
     </div>
     <div>
-      <%= link_to "❌", booking_path(booking), method: :delete, data: { confirm: "Are you sure you want to delete?" }%>
+      <%= link_to "", booking_path(booking), class: "fas fa-times delete-icon", method: :delete, data: { confirm: "Are you sure you want to delete #{booking.car.car_model}?" }%>
     </div>
   </div>
 </div>

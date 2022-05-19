@@ -175,18 +175,24 @@
   position: absolute;
   display: none;
   font-size: 24px;
-  transition: all 0.5s;
+  transition: all 0.1s;
 }
 
 .delete-position {
   right: 12px;
   top: 12px;
+  &:hover{
+    transform: scale(1.2);
+  }
 }
 
 .update-position {
-  right: 42px;
+  right: 48px;
   top: 13px;
   font-size: 20px;
+  &:hover {
+    transform: scale(1.4);
+  }
 }
 
 
