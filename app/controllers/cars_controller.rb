@@ -14,7 +14,7 @@ class CarsController < ApplicationController
       @cars = policy_scope(Car.where.not(user: current_user)).order(created_at: :asc)
     end
 
-
+    @cars = @cars.near(params[:address, 200]) if params[:address]
   end
 
   def show
