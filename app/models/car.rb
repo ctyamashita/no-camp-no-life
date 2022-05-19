@@ -9,8 +9,8 @@ class Car < ApplicationRecord
                     tsearch: { prefix: true }
                   }
 
-  validates :price_per_day, numericality: { only_integer: true }
-  validates :capacity, numericality: { only_integer: true }
+  validates :price_per_day, numericality: { only_integer: true, greater_than: 0 }
+  validates :capacity, numericality: { only_integer: true, greater_than: 1 }
   validates :car_model, presence: true
 
   geocoded_by :address
