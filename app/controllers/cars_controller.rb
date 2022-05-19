@@ -1,6 +1,17 @@
 class CarsController < ApplicationController
   def index
-    @cars = policy_scope(Car.where.not(user: current_user)).order(created_at: :asc)
+    if params[:q].present?
+      @cars = policy_scope(Car.geocoded.near(params[:q], 200))
+      @markers = @cars.geocoded.map do |car|
+        {
+          lat: car.latitude,
+          lng: car.longitude,
+          info_window: render_to_string(partial: 'cars/info_window', locals: { car: car })
+        }
+      end
+    else
+      @cars = policy_scope(Car.where.not(user: current_user)).order(created_at: :asc)
+    end
   end
 
   def show
