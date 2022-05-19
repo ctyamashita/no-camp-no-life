@@ -58,3 +58,37 @@
   height: 200px;
   width: 300px;
 }
+
+.delete-btn {
+  z-index: 1;
+  position: absolute;
+  color: white;
+  text-decoration: none;
+  top: 3px;
+  right: 12px;
+  transition: .3s;
+  opacity: .3;
+
+  &:hover {
+    opacity: 1;
+    transition: .3s;
+    color: white;
+  }
+}
+
+.delete-btn-2 {
+  z-index: 1;
+  position: absolute;
+  color: $red;
+  text-decoration: none;
+  top: -12px;
+  right: 12px;
+  transition: .3s;
+  opacity: .3;
+
+  &:hover {
+    opacity: 1;
+    transition: .3s;
+    color: $red;
+  }
+}

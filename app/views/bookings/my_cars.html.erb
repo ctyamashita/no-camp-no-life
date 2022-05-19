@@ -2,8 +2,8 @@
   <div class="d-flex align-items-center">
   <h1>My page</h1>
     <%= link_to 'Update my cars', my_cars_cars_path, class: "btn btn-primario ms-3" %>
-    <%= link_to "My bookings", bookings_path, class: "btn btn-primario ms-3 disabled" %>
-    <%= link_to 'Bookings request', my_cars_bookings_path, class: "btn btn-primario ms-3" %>
+    <%= link_to "My bookings", bookings_path, class: "btn btn-primario ms-3" %>
+    <%= link_to 'Bookings request', my_cars_bookings_path, class: "btn btn-primario ms-3 disabled" %>
   </div>
   <hr>
 
@@ -13,7 +13,7 @@
         <%= render 'booking_card', booking: booking %>
       <% end %>
     <% else %>
-      <p>No bookings</p>
+      <p>No requests</p>
     <% end %>
   </div>
 </div>

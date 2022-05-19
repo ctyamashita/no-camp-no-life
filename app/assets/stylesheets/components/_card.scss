@@ -108,6 +108,7 @@
 
 .card-product .card-product-infos {
   padding: 16px;
+  position: relative;
 }
 
 .max-width {
@@ -133,6 +134,7 @@
 }
 
 .card-category-link {
+  z-index: 0;
   position: absolute;
   top: 0;
   left: 0;
