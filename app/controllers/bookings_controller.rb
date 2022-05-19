@@ -2,6 +2,7 @@ class BookingsController < ApplicationController
   def index
     @bookings = policy_scope(current_user.bookings).order(created_at: :asc)
     @cars = policy_scope(Booking.where(car: Car.where(user: current_user))).order(created_at: :asc)
+    @my_cars = policy_scope(Car.where(user: current_user))
   end
 
   def create

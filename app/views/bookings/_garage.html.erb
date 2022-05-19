@@ -1,14 +1,14 @@
 
 <div class="mt-5 col-12" data-bookings-target="garage">
   <h2>My vehicles</h2>
-  <% Car.where(user: current_user).each do |car| %>
-  <div class="card-category mt-3" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= car.photo.attached? ? cl_image_path(car.photo.key) : '/assets/not-available.jpg' %>)">
-  <%= car.car_model %>
-  <%= link_to '', car_path(car), class: 'card-category-link' %>
+  <div class='cards'>
+    <% @my_cars.each do |car| %>
+      <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= car.photo.attached? ? cl_image_path(car.photo.key) : '/assets/not-available.jpg' %>)">
+        <%= car.car_model %>
+        <%= link_to '', car_path(car), class: 'card-category-link' %>
+      </div>
+    <% end %>
   </div>
-  <% end %>
-
-<%# <%= link_to car.car_model, car_path(car), class: 'btn btn-outline' %>
 
   <hr class="my-5">
   <h2>Booking requests</h2>

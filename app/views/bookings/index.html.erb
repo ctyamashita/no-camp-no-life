@@ -19,43 +19,6 @@
 <div class="mt-5 col-12" data-bookings-target="myBookings">
 <h2 class="mt-3">My Bookings</h2>
   <% @bookings.each do |booking| %>
-  <div class="card-product mb-3 mt-3">
-
-    <% if booking.car.photo.attached? %>
-      <div style="background-image: url(<%= cl_image_path(booking.car.photo.key)%>); background-position: center; height: 120px; background-size: cover; width: 200px; padding: 0px;">
-      </div>
-    <% else %>
-      <div style="background-image: url(/assets/not-available.jpg); filter: grayscale(100%); background-position: center; height: 120px; background-size: cover; width: 200px; padding: 0px;"></div>
-    <% end %>
-
-
-    <div class="d-flex w-100 card-product-infos justify-content-evenly align-items-center text-center">
-      <div class="max-width">
-        <h2><%= booking.car.car_model %></h2>
-      </div>
-      <div>
-        <p><i class="md-icon mb-2 fas fa-envelope"></i> Contact<br><strong><%= booking.car.user.email %></strong></p>
-      </div>
-        <div>
-          <p><i class="md-icon mb-2 fas fa-calendar-alt"></i> From<br> <strong><%= booking.start_date %></strong></p>
-        </div>
-        <div>
-          <p><i class="md-icon mb-2 fas fa-calendar-alt"></i> To<br> <strong><%= booking.end_date %></strong></p>
-        </div>
-        <div>
-          <p><i class="md-icon mb-2 fas fa-shield-alt"></i> Status <br> <strong><%= booking.status %></strong></p>
-        </div>
-        <div>
-          <p><i class="far fa-money-bill-alt"></i> Total:<br> <strong> ¥<%= (booking.car.price_per_day * (booking.end_date - booking.start_date)).to_i %></strong></p>
-        </div>
-    </div>
-  </div>
+    <%= render 'booking_card', booking: booking %>
   <% end %>
 </div>
-
-
-
-
-
-
-<%# MY CODE %>
