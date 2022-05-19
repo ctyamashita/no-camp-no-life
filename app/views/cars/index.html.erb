@@ -1,10 +1,20 @@
-<div class="banner">
-  <div class="container text-center">
-    <h1 class="px-5">No Camp No Life</h1>
-    <p class="px-5">Get the wheels for the adventure of your life!</p>
-    <a class="btn btn-primario" href="#cars-list">Book now</a>
+<% if params[:q].present? %>
+  <div style="width: 100%; height: 100vh; margin: 0; padding: 0"
+    data-controller="mapbox"
+    data-mapbox-markers-value="<%= @markers.to_json %>"
+    data-mapbox-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
   </div>
-</div>
+<% else %>
+  <div class="banner">
+    <div class="container text-center">
+      <h1 class="px-5">No Camp No Life</h1>
+      <p class="px-5">Get the wheels for the adventure of your life!</p>
+      <a class="btn btn-primario" href="#cars-list">Book now</a>
+    </div>
+  </div>
+<% end %>
+
+
 <div class="container" id="cars-list">
   <div class="row">
       <% @cars.each do |car| %>
@@ -17,7 +27,7 @@
                 <h2><%= car.car_model %> </h2>
                 <p><i class="fas fa-users"></i> <strong><%= car.capacity %> people</strong></p>
               </div>
-              <h2 class="card-trip-pricing">¥<%= car.price_per_day %></h2>
+              <h2 class="card-trip-pricing"><i class="far fa-money-bill-alt"></i> ¥<%= car.price_per_day %></h2>
             </div>
           </div>
         </div>

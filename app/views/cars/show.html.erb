@@ -1,30 +1,33 @@
 <div class="container">
   <div class="row mt-5">
-    <div class="card">
-      <img class="show-img" src=<%= @car.photo.attached? ? cl_image_path(@car.photo.key) : 'https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg' %> />
-    <div class="col">
-
     <% if @car.user == current_user %>
-      <div class="col-12 col-md-10 ms-4">
-        <div>
+      <div class="container col-12">
+        <div class=" col-4 offset-4">
           <h1>Update <strong><%= @car.car_model %></strong></h1>
           <%= simple_form_for @car do |f| %>
-            <%= f.input :car_model %>
-            <%= f.input :capacity %>
-            <%= f.input :description %>
-            <%= f.input :price_per_day %>
-            <%= f.input :photo, as: :file %>
+            <%= f.input :car_model, input_html: { class: "input" } %>
+            <%= f.input :capacity, input_html: { class: "input" } %>
+            <%= f.input :description, input_html: { class: "input" } %>
+            <%= f.input :price_per_day, input_html: { class: "input" } %>
+            <%= f.input :photo, as: :file, input_html: { class: "input" } %>
             <%= f.submit class: 'btn btn-primario mt-3'%>
           <% end %>
         </div>
       </div>
     <% else %>
+    <div class="card">
+      <img class="show-img me-5" src=<%= @car.photo.attached? ? cl_image_path(@car.photo.key) : 'https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg' %> />
+    <div class="col">
         <div class="row">
           <div class="col-12 col-md-10 ms-4">
             <div>
               <h1><strong><%= @car.car_model %></strong></h1>
               <p><%= @car.description %></p>
-              <p class="border-bottom pb-3"><i class="fas fa-users"></i><strong> <%= @car.capacity %> people</strong> | <i class="far fa-money-bill-alt"></i> <strong>¥<%= @car.price_per_day %>/day</strong></p>
+              <div class="d-flex">
+                <p class="border-bottom pb-3 me-5"><i class="fas fa-users"></i><strong> <%= @car.capacity %> people</strong></p>
+                <p class="border-bottom pb-3"><i class="far fa-money-bill-alt"></i> <strong>¥<%= @car.price_per_day %>/day</strong></p>
+              </div>
+
             </div>
           </div>
       </div>
