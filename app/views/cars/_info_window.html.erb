@@ -4,11 +4,14 @@
   <img src=<%= car.photo.attached? ? cl_image_path(car.photo.key) : '/assets/not-available.jpg' %> />
 
   <div class="card-trip-infos">
-    <div class="description-capacity">
+    <div class="description-capacity p-3">
       <h3><%= car.car_model %></h2>
-      <p><%= car.description %></p>
-      <p><i class="fas fa-users me-2"></i><%= car.capacity %></p>
+
+      <div class="d-flex">
+        <p class="me-2"><i class="fas fa-users"></i> <%= car.capacity %></p>
+        <p class="card-trip-pricing me-2"><i class="far fa-money-bill-alt me-2"></i>¥<%= car.price_per_day %></h2>
+        <p><i class="fas fa-map-marker"></i> <%= car.address %></p>
+      </div>
     </div>
-    <p class="card-trip-pricing"><i class="far fa-money-bill-alt me-2"></i>¥<%= car.price_per_day %></h2>
   </div>
 </div>

@@ -17,7 +17,6 @@ class CarsController < ApplicationController
     authorize @car
     @booking = Booking.new
     @my_car = @car.user == current_user
-    @marker = set_marker(@car)
   end
 
   def new
@@ -70,13 +69,5 @@ class CarsController < ApplicationController
         info_window: render_to_string(partial: 'cars/info_window', locals: { car: car })
       }
     end
-  end
-
-  def set_marker(car)
-    {
-      lat: car.latitude,
-      lng: car.longitude,
-      info_window: render_to_string(partial: 'cars/info_window', locals: { car: car })
-    }
   end
 end
