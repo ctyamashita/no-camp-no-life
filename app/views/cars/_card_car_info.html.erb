@@ -1,4 +1,4 @@
-<%= cl_image_tag car.photo.attached? ? car.photo.key : '/assets/not-available.jpg' %>
+<img src=<%= car.photo.attached? ? cl_image_path(car.photo.key) : '/assets/not-available.jpg' %>>
 <%= link_to '', car_path(car), class: 'card-trip-link' %>
 <div class="p-3">
   <h2><%= car.car_model %> </h2>
