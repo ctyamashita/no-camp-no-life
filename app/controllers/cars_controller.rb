@@ -5,7 +5,6 @@ class CarsController < ApplicationController
     @cars = policy_scope(@cars.search_by_car_model_and_description_and_capacity(params[:q])) if params[:q].present?
     @cars = policy_scope(@cars.near(params[:address], 500)) if params[:address].present?
     @markers = set_markers(@cars)
-
   end
 
   def my_cars

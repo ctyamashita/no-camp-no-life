@@ -12,7 +12,11 @@
       <h2><%= booking.car.car_model %></h2>
     </div>
     <div>
-      <p><i class="md-icon mb-2 fas fa-envelope"></i> Contact<br><strong><%= booking.car.user.email %></strong></p>
+      <% if current_user == booking.user %>
+        <p><i class="md-icon mb-2 fas fa-envelope"></i>Owner's Contact<br><strong><%= booking.car.user.email %></strong></p>
+      <% else %>
+        <p><i class="md-icon mb-2 fas fa-envelope"></i>Contact<br><strong><%= booking.user.email %></strong></p>
+      <% end %>
     </div>
     <div>
       <p><i class="md-icon mb-2 fas fa-calendar-alt"></i> From<br> <strong><%= booking.start_date %></strong></p>
