@@ -5,7 +5,14 @@
   border-radius: 10px;
   position: relative;
   transition: all 0.5s;
-  h1, h2, h3, h4, h5, h6, p {
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  p {
     color: $blue;
   }
 }
@@ -39,27 +46,13 @@
   width: 100%;
 }
 
-.card-trip .card-trip-infos {
-  padding: 16px;
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-end;
-  position: relative;
-}
-
-.card-trip-infos .card-trip-user {
-  position: absolute;
-  right: 16px;
-  top: -20px;
-  width: 40px;
-}
-
 .card {
   display: grid;
   background-color: rgba(255, 255, 255, 0);
   border: none;
   grid-template-columns: 4fr 3fr;
-  width:100%;
+  width: 100%;
+
   img {
     width: 100%;
     max-height: 70vh;
@@ -108,7 +101,6 @@
 
 .card-product .card-product-infos {
   padding: 16px;
-  position: relative;
 }
 
 .max-width {
@@ -134,7 +126,6 @@
 }
 
 .card-category-link {
-  z-index: 0;
   position: absolute;
   top: 0;
   left: 0;
@@ -183,4 +174,39 @@
   .cards {
     grid-template-columns: 1fr 1fr 1fr;
   }
+}
+
+.card-delete {
+  color: #fff;
+  list-style: none;
+  text-decoration: none;
+  position: absolute;
+  display: none;
+  font-size: 24px;
+  transition: all 0.1s;
+}
+
+.delete-position {
+  right: 12px;
+  top: 12px;
+
+  &:hover {
+    transform: scale(1.2);
+  }
+}
+
+.update-position {
+  right: 48px;
+  top: 13px;
+  font-size: 20px;
+
+  &:hover {
+    transform: scale(1.4);
+  }
+}
+
+
+.card-category:hover .card-delete {
+  display: block;
+  color: $light-gray;
 }

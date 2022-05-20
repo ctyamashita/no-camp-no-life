@@ -3,7 +3,7 @@ class CarsController < ApplicationController
   def index
     @cars = policy_scope(Car.where.not(user: current_user)).order(created_at: :asc)
     @cars = policy_scope(@cars.search_by_car_model_and_description_and_capacity(params[:q])) if params[:q].present?
-    @cars = policy_scope(@cars.near(params[:address], 70)) if params[:address].present?
+    @cars = policy_scope(@cars.near(params[:address], 500)) if params[:address].present?
     @markers = set_markers(@cars)
   end
 
@@ -17,6 +17,7 @@ class CarsController < ApplicationController
     authorize @car
     @booking = Booking.new
     @my_car = @car.user == current_user
+    @marker = set_marker(@car)
   end
 
   def new
@@ -69,5 +70,13 @@ class CarsController < ApplicationController
         info_window: render_to_string(partial: 'cars/info_window', locals: { car: car })
       }
     end
+  end
+
+  def set_marker(car)
+    {
+      lat: car.latitude,
+      lng: car.longitude,
+      info_window: render_to_string(partial: 'cars/info_window', locals: { car: car })
+    }
   end
 end

@@ -2,6 +2,7 @@
 <div class="card-trip">
   <%= link_to "", car_path(car), class: 'card-category-link' %>
   <img src="<%= car.photo.attached? ? cl_image_path(car.photo.key) :  'https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg' %>" />
+
   <div class="card-trip-infos">
     <div class="description-capacity">
       <h3><%= car.car_model %></h2>
