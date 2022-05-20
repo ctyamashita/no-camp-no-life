@@ -1,7 +1,7 @@
 
 <div class="card-trip">
   <%= link_to "", car_path(car), class: 'card-category-link' %>
-  <img src="<%= car.photo.attached? ? cl_image_path(car.photo.key) :  'https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg' %>" />
+  <img src=<%= car.photo.attached? ? cl_image_path(car.photo.key) : '/assets/not-available.jpg' %> />
 
   <div class="card-trip-infos">
     <div class="description-capacity">
@@ -11,5 +11,4 @@
     </div>
     <p class="card-trip-pricing"><i class="far fa-money-bill-alt me-2"></i>¥<%= car.price_per_day %></h2>
   </div>
-
 </div>
