@@ -1,9 +1,9 @@
 <div class="container mt-5 col-12">
   <div class="d-flex align-items-center">
   <h1>My page</h1>
-    <%= link_to 'Update my cars', my_cars_cars_path, class: "btn btn-primario ms-3 disabled" %>
-    <%= link_to "My bookings", bookings_path, class: "btn btn-primario ms-3" %>
-    <%= link_to 'Bookings request', my_cars_bookings_path, class: "btn btn-primario ms-3" %>
+    <%= link_to 'Manage cars', my_cars_cars_path, class: "btn btn-primario ms-3 disabled btn-blue" %>
+    <%= link_to "Manage bookings", bookings_path, class: "btn btn-primario ms-3 btn-blue" %>
+    <%= link_to 'Booking requests', my_cars_bookings_path, class: "btn btn-primario ms-3" %>
   </div>
   <hr>
 
@@ -11,12 +11,13 @@
     <div class='cards'>
       <% if @my_cars.any? %>
         <% @my_cars.each do |car| %>
-          <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= car.photo.attached? ? cl_image_path(car.photo.key) : '/assets/not-available.jpg' %>)">
-            <%= link_to "✖", car_path(car), method: :delete, data: { confirm: "Are you sure you want to delete?" }, class: 'delete-btn'%>
-            <%= car.car_model %>
-            <%= link_to '', car_path(car), class: 'card-category-link' %>
-          </div>
-        <% end %>
+        <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= car.photo.attached? ? cl_image_path(car.photo.key) : '/assets/not-available.jpg' %>)">
+          <%= car.car_model %>
+          <%= link_to '', car_path(car), class: 'card-delete delete-position fas fa-times', method: :delete, data: { confirm: "Are you sure you want to delete #{car.car_model}?" } %>
+          <%= link_to '', car_path(car), class: 'card-delete update-position fas fa-pen' %>
+
+        </div>
+      <% end %>
       <% else %>
         <p>No cars</p>
       <% end %>
