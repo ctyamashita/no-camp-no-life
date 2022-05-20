@@ -1,8 +1,14 @@
 .input {
-  border-color: $gray !important;
+  border-color: $gray  !important;
   box-shadow: 0 0 4px rgba($color: #000000, $alpha: 0.1);
   background-color: #fff;
   border-radius: 20px;
+
+  p {
+    font-size: 12px
+  }
+
+  ;
 }
 
 .input:hover {
@@ -17,4 +23,21 @@
 
 .form-control.is-valid {
   background-image: none;
+}
+
+.select.is-valid {
+  border-color: none;
+}
+
+.form-select .is-valid {
+  border-color: none;
+}
+
+.small-input {
+  width: 150px;
+}
+
+.form-select {
+  background-image: none;
+  padding: 4px 8px;
 }

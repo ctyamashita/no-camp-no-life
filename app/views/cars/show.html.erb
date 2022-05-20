@@ -11,14 +11,17 @@
               <div>
                 <h1><strong><%= @car.car_model %></strong></h1>
                 <p><%= @car.description %></p>
-                <div class="d-flex">
-                  <p class="border-bottom pb-3 me-5"><i class="fas fa-users"></i><strong> <%= @car.capacity %> people</strong></p>
-                  <p class="border-bottom pb-3"><i class="far fa-money-bill-alt"></i> <strong>¥<%= @car.price_per_day %>/day</strong></p>
+                <div class="border-bottom d-flex">
+                  <p class="me-3"><i class="fas fa-users"></i> <%= @car.capacity %></p>
+                  <p class="me-3"><i class="fas fa-map-marker"></i> <%= @car.address %></p>
+                  <p class="pb-3"><i class="far fa-money-bill-alt"></i> ¥<%= @car.price_per_day %>/day</p>
                 </div>
               </div>
             </div>
           </div>
         <%= render 'bookings/form' %>
       </div>
-    <% end %>
+    </div>
+    <%= render 'map' %>
+  <% end %>
 </div>
