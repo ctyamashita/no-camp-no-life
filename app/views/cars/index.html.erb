@@ -1,6 +1,6 @@
 
 <% if params[:q].present? || params[:address].present? %>
-  <%= render 'map' %>
+  <%= render 'map', marker: @markers %>
 <% else %>
   <div class="banner mb-5">
     <div class="container text-center">
