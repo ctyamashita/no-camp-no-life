@@ -16,3 +16,16 @@
   background-color: rgba(0, 0, 0, 0);
 }
 
+.card-category-link {
+  // z-index: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+}
+
+
+.description-capacity {
+  text-align: left;
+}
