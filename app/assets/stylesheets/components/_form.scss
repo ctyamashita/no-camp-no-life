@@ -11,6 +11,32 @@
   border-radius: 20px;
 }
 
+.form-control.is-valid {
+  // background-image: asset-url(caret-down-solid);
+  border-color: transparent !important;
+}
+
+.select.is-valid {
+  border-color: none;
+  border-radius: 50px;
+  padding-left: 16px;
+  border-color: transparent !important;
+}
+
+.form-select .is-valid {
+  border-color: none;
+}
+
+.form-select .is-valid:focus {
+  border-color: none;
+  box-shadow: none;
+}
+
+.form-select .is-valid:active {
+  border-color: none;
+  box-shadow: none;
+}
+
 .mapboxgl-ctrl-geocoder {
   max-width: none;
   width: 100%;

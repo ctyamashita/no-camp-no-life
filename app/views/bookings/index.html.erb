@@ -1,9 +1,9 @@
 <div class="container mt-5 col-12">
   <div class="d-flex align-items-center">
   <h1>My page</h1>
+    <%= link_to "Manage bookings", bookings_path, class: "btn btn-primario ms-3 btn-blue disabled" %>
     <%= link_to 'Manage cars', my_cars_cars_path, class: "btn btn-primario ms-3 btn-blue" %>
-    <%= link_to "Manage bookings", bookings_path, class: "btn btn-primario ms-3 disabled btn-blue" %>
-    <%= link_to 'Booking requests', my_cars_bookings_path, class: "btn btn-primario ms-3" %>
+    <%= link_to 'Booking requests', my_cars_bookings_path, class: "btn btn-primario ms-3  " %>
   </div>
   <hr>
 
